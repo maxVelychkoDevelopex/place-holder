@@ -1,0 +1,48 @@
+.container-customer {
+    padding-top: 50px;
+}
+
+.col-12-customer {
+    top: 50px;
+    padding-bottom: 50px;
+    background: dimgrey;
+}
+
+.container .head {
+    background: paleturquoise;
+}
+
+.container .col-title-item {
+    font-size: 18px;
+    font-weight: 600;
+    font-family: sans-serif;
+}
+
+.list-users {
+    padding-top: 60px;
+}
+
+.container .user-item {
+    line-height: 200%;
+    list-style-type: none;
+}
+
+.container .col-item {
+    font-size: 16px;
+    font-family: sans-serif;
+}
+.container .col-item-id {
+    background: aliceblue;
+}
+.container .col-item-name {
+    background: antiquewhite;
+}
+.container .col-item-company-name {
+    background: darkgrey;
+}
+.container .col-item-phone {
+    background: gainsboro;
+}
+.container .col-item-edit {
+    background: currentcolor;
+}
