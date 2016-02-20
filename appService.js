@@ -9,12 +9,17 @@
         var root = 'http://jsonplaceholder.typicode.com';
 
         return {
-            loadUsers: loadUsers
+            loadUsers: loadUsers,
+            deleteUser: deleteUser
         };
 
 
         function loadUsers() {
-            return $http.get(root + /users/);
+            return $http.get(root + '/users/');
+        }
+
+        function deleteUser(userId) {
+            return $http.delete(root + '/users/' + userId);
         }
     }
 })();

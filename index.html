@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="myApp">
 <head>
     <meta charset="UTF-8">
     <title>place-holder</title>
@@ -7,8 +7,8 @@
     <link href="bower_components/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
 </head>
 <body>
-<div class="container">
-    <div class="container container-customer" ng-controller="mainCtrl">
+<div class="container" ng-controller="mainCtrl">
+    <div class="container container-customer">
         <div class="col-md-12">
             <div class="col-md-2 col-md-offset-3"></div>
             <button class="btn btn-primary" ng-click="showUsers()">Show Users</button>
@@ -26,28 +26,34 @@
                 </li>
             </ul>
             <ul class="list-users" ng-show="displayUsers">
-                <li class="user-item" ng-repeat="user in dataUsers">
+                <li class="user-item" ng-repeat="user in users">
                     <div class="col-md-12">
-                        <div class="col-md-1 col-item col-item-id">1</div>
-                        <div class="col-md-3 col-item col-item-name">Leanne Graham</div>
-                        <div class="col-md-3 col-item col-item-company-name">Romaguera-Crona</div>
-                        <div class="col-md-3 col-item col-item-phone">1-770-736-8031 x56442</div>
+                        <div class="col-md-1 col-item col-item-id">{{user.id}}</div>
+                        <div class="col-md-3 col-item col-item-name">{{user.name}}</div>
+                        <div class="col-md-3 col-item col-item-company-name">{{user.company.name}}</div>
+                        <div class="col-md-3 col-item col-item-phone">{{user.phone}}</div>
                         <div class="col-md-2 col-item col-item-edit">
-                            <button class="btn btn-info btn-xs">edit</button>
-                            <button class="btn btn-danger btn-xs">delete</button>
+                            <edit-user ng-click="editUser(user.id)"></edit-user>
+                            <delete-user ng-click="deleteUser(user.id)"></delete-user>
                         </div>
                     </div>
                 </li>
             </ul>
         </div>
+        <div class="col-md-12" ng-show="userEditable">
+            <button class="btn btn-danger"></button>
+        </div>
     </div>
 </div>
 
-<!--<script src="bower_components/angular/angular.js"></script>-->
+<script src="bower_components/angular/angular.js"></script>
 <script src="bower_components/jquery/dist/jquery.js"></script>
 <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
-<!--<script src="app.js"></script>-->
-<!--<script src="mainController.js"></script>-->
-<!--<script src="appService.js"></script>-->
+<script src="app.js"></script>
+<script src="mainController.js"></script>
+<script src="appService.js"></script>
+<script src="deleteUser.js"></script>
+<script src="editUser.js"></script>
+
 </body>
 </html>

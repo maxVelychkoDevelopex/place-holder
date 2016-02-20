@@ -7,7 +7,8 @@
 
     function mainCtrl($scope, apiService) {
         $scope.displayUsers = false;
-        $scope.users = undefined;
+        $scope.userEditable = true;
+        $scope.users = null;
 
         loadUsers();
 
