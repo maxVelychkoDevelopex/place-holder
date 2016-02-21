@@ -3,12 +3,13 @@
 
     angular
         .module('myApp')
-        .controller('mainCtrl', ['$scope', 'apiService', mainCtrl]);
+        .controller('mainCtrl', ['$scope', '$element', 'apiService', mainCtrl]);
 
-    function mainCtrl($scope, apiService) {
+    function mainCtrl($scope, $element, apiService) {
         $scope.displayUsers = false;
-        $scope.userEditable = true;
+        $scope.userEditability = true;
         $scope.users = null;
+        $scope.userEdited = null;
 
         loadUsers();
 

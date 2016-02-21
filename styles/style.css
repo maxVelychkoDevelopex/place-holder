@@ -1,10 +1,6 @@
-.container-customer {
-    padding-top: 50px;
-}
-
 .col-12-customer {
-    top: 50px;
-    padding-bottom: 50px;
+    top: 20px;
+    padding-bottom: 20px;
     background: dimgrey;
 }
 
@@ -19,7 +15,7 @@
 }
 
 .list-users {
-    padding-top: 60px;
+    padding-top: 10px;
 }
 
 .container .user-item {
@@ -45,4 +41,7 @@
 }
 .container .col-item-edit {
     background: currentcolor;
+}
+.container .edit-form {
+    top: 30px;
 }

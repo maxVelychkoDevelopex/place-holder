@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <title>place-holder</title>
-    <link href="style.css" rel="stylesheet">
+    <link href="styles/style.css" rel="stylesheet">
     <link href="bower_components/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
 </head>
 <body>
 <div class="container" ng-controller="mainCtrl">
-    <div class="container container-customer">
+    <div class="container">
         <div class="col-md-12">
             <div class="col-md-2 col-md-offset-3"></div>
             <button class="btn btn-primary" ng-click="showUsers()">Show Users</button>
@@ -33,15 +33,35 @@
                         <div class="col-md-3 col-item col-item-company-name">{{user.company.name}}</div>
                         <div class="col-md-3 col-item col-item-phone">{{user.phone}}</div>
                         <div class="col-md-2 col-item col-item-edit">
-                            <edit-user ng-click="editUser(user.id)"></edit-user>
+                            <edit-user ng-click="editUser(user)"></edit-user>
                             <delete-user ng-click="deleteUser(user.id)"></delete-user>
                         </div>
                     </div>
                 </li>
             </ul>
         </div>
-        <div class="col-md-12" ng-show="userEditable">
-            <button class="btn btn-danger"></button>
+        <div class="col-md-6 col-md-offset-3 edit-form" ng-show="userEditability">
+            <form class="form-horizontal">
+              <div class="form-group">
+                <label class="control-label col-xs-3">Name</label>
+                <div class="controls col-xs-9">
+                    <input type="text" class="form-control" ng-model='userEdited.name' placeholder="Name">
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="control-label col-xs-3">Company-Name</label>
+                <div class="controls col-xs-9">
+                    <input type="text" class="form-control" ng-model='userEdited.company.name' placeholder="Company-Name">
+                </div>
+              </div>
+
+              <div class="form-group">
+                <div class="col-xs-offset-4 col-xs-4">
+                    <button type="button" class="btn btn-large btn-primary">Save User</button>
+                </div>
+              </div>
+            </form>
         </div>
     </div>
 </div>
@@ -49,11 +69,11 @@
 <script src="bower_components/angular/angular.js"></script>
 <script src="bower_components/jquery/dist/jquery.js"></script>
 <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
-<script src="app.js"></script>
-<script src="mainController.js"></script>
-<script src="appService.js"></script>
-<script src="deleteUser.js"></script>
-<script src="editUser.js"></script>
+<script src="js/app.js"></script>
+<script src="js/controllers/mainController.js"></script>
+<script src="js/services/appService.js"></script>
+<script src="js/directives/deleteUser.js"></script>
+<script src="js/directives/editUser.js"></script>
 
 </body>
 </html>

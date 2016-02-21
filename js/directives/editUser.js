@@ -14,7 +14,10 @@
 
         function link(scope) {
 
-            scope.editUser = function (userId) {}
+            scope.editUser = function (user) {
+                scope.$parent.userEditability = true;
+                scope.$parent.userEdited = angular.copy(user);
+            };
 
         }
     }
