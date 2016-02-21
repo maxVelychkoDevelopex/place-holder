@@ -15,8 +15,8 @@
         function link(scope) {
 
             scope.editUser = function (user) {
-                scope.$parent.userEditability = true;
-                scope.$parent.userEdited = angular.copy(user);
+                scope.makeUserFormEditable(true);
+                scope.getCurrentUserEditable(user);       
             };
 
         }

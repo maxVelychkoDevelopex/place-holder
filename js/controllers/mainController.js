@@ -7,15 +7,27 @@
 
     function mainCtrl($scope, $element, apiService) {
         $scope.displayUsers = false;
-        $scope.userEditability = true;
+        $scope.userFormEdit = false;
+        $scope.currentUserEdit = null;
         $scope.users = null;
-        $scope.userEdited = null;
+
+        $scope.makeUserFormEditable = makeUserFormEditable;
+        $scope.getCurrentUserEditable = getCurrentUserEditable;
+        $scope.showUsers = function() {
+            $scope.displayUsers = !$scope.displayUsers;
+            makeUserFormEditable(false);
+        };
 
         loadUsers();
 
-        $scope.showUsers = function() {
-            $scope.displayUsers = !$scope.displayUsers;
-        };
+
+        function makeUserFormEditable(param) {
+            $scope.userFormEdit = param;
+        }
+
+        function getCurrentUserEditable(user) {
+            $scope.currentUserEdit = user;
+        }
 
         function loadUsers() {
             apiService.loadUsers()

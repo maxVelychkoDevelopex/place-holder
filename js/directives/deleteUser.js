@@ -14,13 +14,16 @@
 
         function link(scope) {
 
-            scope.deleteUser = function(userId) {
+            scope.deleteUser = function(userId) {                
                 apiService.deleteUser(userId);
+                
                 scope.users.forEach(function (user, index, data) {
                     if(user.id == userId) {
                         data.splice(index, 1);
                     }
                 });
+
+                scope.makeUserFormEditable(false);  
             };
         }
     }
