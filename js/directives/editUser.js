@@ -1,24 +1,24 @@
-(function () {
-    'use strict';
+// (function () {
+//     'use strict';
 
-    angular
-        .module('myApp')
-        .directive('editUser', ['apiService', editUser]);
+//     angular
+//         .module('myApp')
+//         .directive('editUser', ['apiService', editUser]);
 
-    function editUser(apiService) {
-        return {
-            restrict: 'E',
-            templateUrl: 'editUser.html',
-            link: link
-        };
+//     function editUser(apiService) {
+//         return {
+//             restrict: 'E',
+//             templateUrl: 'editUser.html',
+//             link: link
+//         };
 
-        function link(scope) {
+//         function link(scope) {
 
-            scope.editUser = function (user) {
-                scope.makeUserFormEditable(true);
-                scope.getCurrentUserEditable(user);       
-            };
+//             scope.editUser = function (user) {
+//                 scope.makeUserFormEditable(true);
+//                 scope.getCurrentUserEditable(user);       
+//             };
 
-        }
-    }
-})();
+//         }
+//     }
+// })();
