@@ -13,6 +13,17 @@
     cursor: pointer;
 }
 
+.container .user-data {
+    background: aliceblue;
+    /*text-align: center;*/
+    font-size: 20px;
+    font-family: sans-serif;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border: 3px solid #fff;
+    cursor: pointer;
+}
+
 /*.col-12-customer {
     top: 20px;
     padding-bottom: 20px;

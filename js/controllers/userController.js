@@ -3,9 +3,21 @@
 
     angular
         .module('myApp')
-        .controller('userCtrl', ['$scope', '$routeParams', userCtrl]);
+        .controller('userCtrl', ['$scope', '$routeParams', 'apiService', userCtrl]);
 
-    function userCtrl($scope, $routeParams) {
-        $scope.userId = $routeParams.userId;
+    function userCtrl($scope, $routeParams, apiService) {
+      $scope.user = null;
+      $scope.userId = $routeParams.userId;
+
+      loadUsers();
+
+
+      function loadUsers() {
+        apiService.loadUsers($scope.userId)
+          .success(function(data) {
+            $scope.user = data;
+          })
+      }
+
     }
 })();

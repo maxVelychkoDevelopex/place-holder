@@ -14,8 +14,12 @@
         };
 
 
-        function loadUsers() {
+        function loadUsers(userId) {
+          if(userId) {
+            return $http.get(root + '/users/' + userId);
+          } else {
             return $http.get(root + '/users/');
+          }
         }
 
         function deleteUser(userId) {
