@@ -6,11 +6,11 @@
         .config(['$routeProvider', function($routeProvider) {
         	$routeProvider.
         		when('/users', {
-        			templateUrl: 'templates/list-users-template.html',
+        			templateUrl: 'templates/routeTemplates/list-users-template.html',
         			controller: 'listUsersCtrl'
         		}).
         		when('/users/:userId', {
-        			templateUrl: 'templates/user-template.html',
+        			templateUrl: 'templates/routeTemplates/user-template.html',
         			controller: 'userCtrl'
         		}).
         		otherwise({

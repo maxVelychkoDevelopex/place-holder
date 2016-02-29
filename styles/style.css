@@ -24,6 +24,28 @@
     cursor: pointer;
 }
 
+.container .title-row-fields {
+  padding: 10px;
+  background: darkgray;
+  font-weight: 600;
+  font-family: sans-serif;
+}
+
+.container .user-row-fields {
+  padding: 10px;
+  background: antiquewhite;
+  font-family: cursive;
+}
+
+.container .btn-custom-position {
+  position: relative;
+  margin-left: 50%;
+}
+
+.container .row-top-position {
+  margin-top: 10px;
+}
+
 /*.col-12-customer {
     top: 20px;
     padding-bottom: 20px;

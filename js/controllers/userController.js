@@ -3,10 +3,9 @@
 
     angular
         .module('myApp')
-        .controller('userCtrl', ['$scope', '$routeParams', 'apiService', userCtrl]);
+        .controller('userCtrl', ['$scope', '$location', '$routeParams', 'apiService', userCtrl]);
 
-    function userCtrl($scope, $routeParams, apiService) {
-      $scope.user = null;
+    function userCtrl($scope, $location, $routeParams, apiService) {
       $scope.userId = $routeParams.userId;
 
       loadUsers();
@@ -17,7 +16,9 @@
           .success(function(data) {
             $scope.user = data;
           })
+          .error(function() {
+            $location.path('/users/');
+          })
       }
-
     }
 })();

@@ -1,0 +1,38 @@
+<div class="container">
+  <div class="col-md-6">
+      <img src="user.jpg" alt="" />
+  </div>
+  <div class="col-md-6">
+    <div class="row title-row-fields">
+      <div class="col-md-3">
+        name
+      </div>
+      <div class="col-md-3">
+        email
+      </div>
+      <div class="col-md-3">
+        company
+      </div>
+      <div class="col-md-3">
+        phone
+      </div>
+    </div>
+    <div class="row user-row-fields row-top-position">
+      <div class="col-md-3">
+        {{user.name}}
+      </div>
+      <div class="col-md-3">
+        {{user.email}}
+      </div>
+      <div class="col-md-3">
+        {{user.company.name}}
+      </div>
+      <div class="col-md-3">
+        {{user.phone}}
+      </div>
+    </div>
+    <div class="row row-top-position">
+      <edit-user user-data="{{user}}"></edit-user>
+    </div>
+  </div>
+</div>
