@@ -7,6 +7,10 @@
 
     function userCtrl($scope, $location, $routeParams, apiService) {
       $scope.userId = $routeParams.userId;
+      
+      $scope.$on('updateUserData', function(event, data) {
+        $scope.user = data;
+      });
 
       loadUsers();
 

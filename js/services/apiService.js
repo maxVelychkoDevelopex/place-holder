@@ -3,13 +3,14 @@
 
     angular
         .module('myApp')
-        .service('apiService', ['$http', apiService]);
+        .service('apiService', ['$rootScope', '$http', apiService]);
 
-    function apiService($http) {
+    function apiService($rootScope, $http) {
         var root = 'http://jsonplaceholder.typicode.com';
 
         return {
             loadUsers: loadUsers,
+            saveUser: saveUser,
             deleteUser: deleteUser
         };
 
@@ -22,8 +23,15 @@
           }
         }
 
+        function saveUser(userId, data) {
+          $http.put(root + '/users/' + userId, data)
+            .then(function(data) {
+              $rootScope.$broadcast('updateUserData', data.data);
+            })
+        }
+
         function deleteUser(userId) {
-            return $http.delete(root + '/users/' + userId);
+          return $http.delete(root + '/users/' + userId);
         }
     }
 })();
