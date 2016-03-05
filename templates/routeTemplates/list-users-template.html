@@ -1,5 +1,7 @@
 <div class="container cont-custom-position">
-    <div class="user-block" ng-repeat="user in users">
+    <div class="user-block" ng-mouseover="showButtons(user)" ng-mouseleave="hideButtons()" ng-repeat="user in users">
         <a href="#/users/{{user.id}}">{{user.name}}</a>
+        <button type="button" class="btn btn-danger btn-xs delete-btn-position" ng-show="visibleButtons" ng-click="deleteUser(user)">delete</button>
     </div></br>
+    <foo></foo>
 </div>

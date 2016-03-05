@@ -46,6 +46,10 @@
   margin-top: 10px;
 }
 
+.container .delete-btn-position {
+    float: right;
+}
+
 /*.col-12-customer {
     top: 20px;
     padding-bottom: 20px;

@@ -3,11 +3,11 @@
 
     angular
         .module('myApp')
-        .controller('userCtrl', ['$scope', '$location', '$routeParams', 'apiService', userCtrl]);
+        .controller('userCtrl', ['$scope', '$location', '$stateParams', 'apiService', userCtrl]);
 
-    function userCtrl($scope, $location, $routeParams, apiService) {
-      $scope.userId = $routeParams.userId;
-      
+    function userCtrl($scope, $location, $stateParams, apiService) {
+      $scope.userId = $stateParams.userId;
+
       $scope.$on('updateUserData', function(event, data) {
         $scope.user = data;
       });
