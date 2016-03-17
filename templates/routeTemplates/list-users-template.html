@@ -1,6 +1,6 @@
 <div class="container cont-custom-position">
-    <div class="user-block" ng-click="showHideButtons(user.id)" ng-repeat="user in users">
+    <div class="user-block" ng-click="listUsers.showHideButtons(user.id)" ng-repeat="user in listUsers.users">
         <a href="#/users/{{user.id}}">{{user.name}}</a>
-        <button type="button" class="btn btn-danger btn-xs delete-btn-position" ng-show="user.visible" ng-click="deleteUser(user)">delete</button>
+        <button type="button" class="btn btn-danger btn-xs delete-btn-position" ng-show="user.visible" ng-click="listUsers.deleteUser(user)">delete</button>
     </div></br>
 </div>

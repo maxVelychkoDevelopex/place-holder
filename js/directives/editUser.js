@@ -15,12 +15,7 @@
       function link(scope) {
         scope.button = 'edit';
         scope.userFormData = false;
-
-        scope.$watch('user', function(newVal, oldVal) {
-          if(newVal) {
-            scope.userData = angular.copy(newVal);
-          }
-        });
+        scope.user = angular.copy(scope.listUser.user);
 
         scope.editUserData = function() {
           scope.userFormData = !scope.userFormData;
@@ -33,7 +28,7 @@
         };
 
         scope.saveUserData = function() {
-          apiService.saveUser(scope.userId, scope.userData);
+          apiService.saveUser(scope.user);
         }
       }
     }

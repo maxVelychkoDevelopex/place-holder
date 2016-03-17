@@ -23,8 +23,8 @@
           }
         }
 
-        function saveUser(userId, data) {
-          $http.put(root + '/users/' + userId, data)
+        function saveUser(data) {
+          $http.put(root + '/users/' + data.id, data)
             .then(function(data) {
               $rootScope.$broadcast('updateUserData', data.data);
             })

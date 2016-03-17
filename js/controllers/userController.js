@@ -3,25 +3,15 @@
 
     angular
         .module('myApp')
-        .controller('userCtrl', ['$scope', '$location', '$stateParams', 'apiService', userCtrl]);
+        .controller('userCtrl', ['$scope', 'resolvedUser', userCtrl]);
 
-    function userCtrl($scope, $location, $stateParams, apiService) {
-      $scope.userId = $stateParams.userId;
+    function userCtrl($scope, resolvedUser, $location, apiService) {
+      var self = this;
+      this.userId = null;
+      this.user = resolvedUser.data;
 
       $scope.$on('updateUserData', function(event, data) {
-        $scope.user = data;
+        self.user = angular.extend(data);
       });
-
-      loadUsers();
-
-
-      function loadUsers() {
-        apiService.loadUsers($scope.userId)
-          .then(function(data) {
-            $scope.user = data.data;
-          }, function(error) {
-            $location.path('/users/');
-          });
-      }
     }
 })();
