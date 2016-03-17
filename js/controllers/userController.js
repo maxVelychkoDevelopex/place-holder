@@ -17,12 +17,11 @@
 
       function loadUsers() {
         apiService.loadUsers($scope.userId)
-          .success(function(data) {
-            $scope.user = data;
-          })
-          .error(function() {
+          .then(function(data) {
+            $scope.user = data.data;
+          }, function(error) {
             $location.path('/users/');
-          })
+          });
       }
     }
 })();

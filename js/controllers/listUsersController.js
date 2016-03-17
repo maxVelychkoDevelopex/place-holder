@@ -7,40 +7,40 @@
 
     function listUsersCtrl($scope, apiService) {
         $scope.users = null;
-        $scope.visibleButtons = false;
-        $scope.showButtons = showButtons;
-        $scope.hideButtons = hideButtons;
+        $scope.showHideButtons = showHideButtons;
         $scope.deleteUser = deleteUser;
 
 
         loadUsers();
 
 
-        function showButtons(param) {
-          $scope.visibleButtons = true;
-        }
-
-        function hideButtons() {
-          $scope.visibleButtons = false;
+        function showHideButtons(userId) {
+          for(var i=0; i<$scope.users.length; i++) {
+            if($scope.users[i].id == userId) {
+              $scope.users[i].visible = !$scope.users[i].visible;
+              break;
+            }
+          }
         }
 
         function deleteUser(user) {
           apiService.deleteUser(user.id)
-            .success(function(data) {
-              $scope.users = $scope.users.map(function(item) {
+            .then(function(data) {
+              $scope.users.forEach(function(item,index,arr) {
                 if(item.id == user.id) {
-                  delete $scope.users[item];
-                  return;
+                  arr.splice(index, 1);
                 }
-                return item;
               });
-            })
+            });
         }
 
         function loadUsers() {
           apiService.loadUsers()
-            .success(function(data) {
-              $scope.users = data;
+            .then(function(data) {
+              $scope.users = data.data;
+              $scope.users.forEach(function(item) {
+                item.visible = false;
+              })
             })
         }
     }
