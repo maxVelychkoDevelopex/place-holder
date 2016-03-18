@@ -19,7 +19,7 @@
         scope.button = 'show posts';
         scope.userPostsTable = false;
         scope.userPosts = null;
-        scope.user = angular.copy(JSON.parse(scope.userData));
+        scope.user = JSON.parse(scope.userData);
         scope.editUserPosts = editUserPosts;
 
         loadPosts();

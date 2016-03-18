@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-      .module('myApp', ['ui.router'])
+      .module('myApp', ['ui.router', 'LocalStorageModule'])
       .config(function($stateProvider, $urlRouterProvider) {
         $stateProvider
           .state('users', {
@@ -11,13 +11,7 @@
             controller: 'listUsersCtrl as listUsers',
             resolve: {
               resolvedUsers: function(apiService) {
-                return apiService.loadUsers()
-                  .then(function(data) {
-                    data.data.forEach(function(item) {
-                      item.visible = false;
-                    });
-                    return data;
-                  })
+                return apiService.getStorageData();
               }
             }
           })

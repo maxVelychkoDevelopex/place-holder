@@ -18,7 +18,7 @@
       function link(scope) {
         scope.button = 'show user';
         scope.userFormData = false;
-        scope.user = angular.copy(JSON.parse(scope.userData));
+        scope.user = JSON.parse(scope.userData);
         scope.editUserData = editUserData;
         scope.saveUserData = saveUserData;
 

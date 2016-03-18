@@ -3,16 +3,17 @@
 
     angular
         .module('myApp')
-        .factory('apiService', ['$rootScope', '$http', apiService]);
+        .factory('apiService', ['$rootScope', '$http', 'localStorageService', apiService]);
 
-    function apiService($rootScope, $http) {
+    function apiService($rootScope, $http, localStorageService) {
         var root = 'http://jsonplaceholder.typicode.com';
 
         return {
             loadUsers: loadUsers,
             saveUser: saveUser,
             deleteUser: deleteUser,
-            loadPosts: loadPosts
+            loadPosts: loadPosts,
+            getStorageData: getStorageData
         };
 
 
@@ -42,5 +43,21 @@
             return $http.get(root + '/posts/');
           }
         }
+
+        function getStorageData() {
+          if(localStorageService.get('users')) {
+            return localStorageService.get('users');
+          } else {
+            return loadUsers()
+              .then(function(data) {
+                data.data.forEach(function(item) {
+                  item.visible = false;
+                });
+                localStorageService.set('users', data.data);
+                return data.data;
+              });
+          }
+        }
+
     }
 })();

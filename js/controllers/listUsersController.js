@@ -3,11 +3,11 @@
 
     angular
         .module('myApp')
-        .controller('listUsersCtrl', ['$scope', 'resolvedUsers', 'apiService', listUsersCtrl]);
+        .controller('listUsersCtrl', ['$scope', 'resolvedUsers', 'apiService', 'localStorageService', listUsersCtrl]);
 
-    function listUsersCtrl($scope, resolvedUsers, apiService, users) {
+    function listUsersCtrl($scope, resolvedUsers, apiService, localStorageService) {
         var self = this;
-        this.users = resolvedUsers.data;
+        this.users = resolvedUsers;
         this.showHideButtons = showHideButtons;
         this.deleteUser = deleteUser;
 
