@@ -3,7 +3,7 @@
 
     angular
         .module('myApp')
-        .service('apiService', ['$rootScope', '$http', apiService]);
+        .factory('apiService', ['$rootScope', '$http', apiService]);
 
     function apiService($rootScope, $http) {
         var root = 'http://jsonplaceholder.typicode.com';
@@ -11,7 +11,8 @@
         return {
             loadUsers: loadUsers,
             saveUser: saveUser,
-            deleteUser: deleteUser
+            deleteUser: deleteUser,
+            loadPosts: loadPosts
         };
 
 
@@ -32,6 +33,14 @@
 
         function deleteUser(userId) {
           return $http.delete(root + '/users/' + userId);
+        }
+
+        function loadPosts(userId) {
+          if(userId) {
+            return $http.get(root + '/posts?userId=' + userId);
+          } else {
+            return $http.get(root + '/posts/');
+          }
         }
     }
 })();

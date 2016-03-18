@@ -8,26 +8,32 @@
     function editUser(apiService) {
       return {
         restrict: 'E',
+        scope: {
+          'userData': '@'
+        },
         templateUrl: 'templates/directives/edit-user.html',
         link: link
       }
 
       function link(scope) {
-        scope.button = 'edit';
+        scope.button = 'show user';
         scope.userFormData = false;
-        scope.user = angular.copy(scope.listUser.user);
+        scope.user = angular.copy(JSON.parse(scope.userData));
+        scope.editUserData = editUserData;
+        scope.saveUserData = saveUserData;
 
-        scope.editUserData = function() {
+
+        function editUserData() {
           scope.userFormData = !scope.userFormData;
 
           if(scope.userFormData) {
-            scope.button = 'hide';
-            return;
+            scope.button = 'hide user';
+          } else {
+            scope.button = 'show user';
           }
-          scope.button = 'edit';
         };
 
-        scope.saveUserData = function() {
+        function saveUserData() {
           apiService.saveUser(scope.user);
         }
       }
