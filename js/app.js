@@ -10,8 +10,8 @@
             templateUrl: 'templates/routeTemplates/list-users-template.html',
             controller: 'listUsersCtrl as listUsers',
             resolve: {
-              resolvedUsers: function(apiService) {
-                return apiService.getStorageData();
+              resolvedUsers: function(apiStorage) {
+                return apiStorage.getUsersData();
               }
             }
           })
@@ -20,8 +20,8 @@
             templateUrl: 'templates/routeTemplates/user-template.html',
             controller: 'userCtrl as listUser',
             resolve: {
-              resolvedUser: function(apiService, $stateParams) {
-                return apiService.loadUsers($stateParams.userId);
+              resolvedUser: function(apiStorage, $stateParams) {
+                return apiStorage.getUsersData($stateParams.userId);
               }
             }
           });

@@ -12,8 +12,7 @@
             loadUsers: loadUsers,
             saveUser: saveUser,
             deleteUser: deleteUser,
-            loadPosts: loadPosts,
-            getStorageData: getStorageData
+            loadPosts: loadPosts
         };
 
 
@@ -41,21 +40,6 @@
             return $http.get(root + '/posts?userId=' + userId);
           } else {
             return $http.get(root + '/posts/');
-          }
-        }
-
-        function getStorageData() {
-          if(localStorageService.get('users')) {
-            return localStorageService.get('users');
-          } else {
-            return loadUsers()
-              .then(function(data) {
-                data.data.forEach(function(item) {
-                  item.visible = false;
-                });
-                localStorageService.set('users', data.data);
-                return data.data;
-              });
           }
         }
 

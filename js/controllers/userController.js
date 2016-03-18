@@ -8,7 +8,7 @@
     function userCtrl($scope, resolvedUser, $location, apiService) {
       var self = this;
       this.userId = null;
-      this.user = resolvedUser.data;
+      this.user = resolvedUser;
 
       $scope.$on('updateUserData', function(event, data) {
         self.user = angular.extend(data);
