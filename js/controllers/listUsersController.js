@@ -3,9 +3,9 @@
 
     angular
         .module('myApp')
-        .controller('listUsersCtrl', ['$scope', 'resolvedUsers', 'apiService', 'localStorageService', listUsersCtrl]);
+        .controller('listUsersCtrl', ['resolvedUsers', 'apiService', listUsersCtrl]);
 
-    function listUsersCtrl($scope, resolvedUsers, apiService, localStorageService) {
+    function listUsersCtrl(resolvedUsers, apiService) {
         var self = this;
         this.users = resolvedUsers;
         this.showHideButtons = showHideButtons;
@@ -13,9 +13,9 @@
 
 
         function showHideButtons(userId) {
-          for(var i=0; i<this.users.length; i++) {
-            if(this.users[i].id == userId) {
-              this.users[i].visible = !this.users[i].visible;
+          for(var i=0; i<self.users.length; i++) {
+            if(self.users[i].id == userId) {
+                self.users[i].visible = !self.users[i].visible;
               break;
             }
           }
