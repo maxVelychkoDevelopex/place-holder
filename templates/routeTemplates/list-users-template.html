@@ -1,6 +1,38 @@
-<div class="container cont-custom-position">
+<div class="container">
+    <div class="head-user-block">Users</div>
     <div class="user-block" ng-click="listUsers.showHideButtons(user.id)" ng-repeat="user in listUsers.users">
         <a href="#/users/{{user.id}}">{{user.name}}</a>
         <button type="button" class="btn btn-danger btn-xs delete-btn-position" ng-show="user.visible" ng-click="listUsers.deleteUser(user)">delete</button>
-    </div></br>
+    </div>
+    <div class="head-user-block">Posts</div>
+    <div class="col-md-6 col-md-offset-3">
+        <input type="text" ng-model="postTitle" class="form-control" placeholder="search posts">
+    </div>
+    <div class="col-md-offset-3">
+        <span class="filter-text">filter posts</span>
+    </div>
+    <div class="col-md-12">
+        <div class="col-md-6">
+            <div class="head-user-block">
+                <span class="post-text">post-id</span>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="head-user-block">
+                <span class="post-text">post-title</span>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-12" ng-repeat="post in listUsers.posts  | filter : postTitle">
+        <div class="col-md-6">
+            <div class="user-block">
+                <span class="post-text">{{post.id | numberEnd}}</span>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="user-block">
+                <span class="post-text">{{post.title}}</span>
+            </div>
+        </div>
+    </div>
 </div>

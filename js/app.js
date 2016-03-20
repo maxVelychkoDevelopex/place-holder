@@ -4,6 +4,7 @@
     angular
       .module('myApp', ['ui.router', 'LocalStorageModule'])
       .config(function($stateProvider, $urlRouterProvider) {
+          // console.log('config');
         $stateProvider
           .state('users', {
             url: '/users/',

@@ -6,6 +6,8 @@
         .controller('listUsersCtrl', ['resolvedUsers', 'resolvedPosts', 'apiService', listUsersCtrl]);
 
     function listUsersCtrl(resolvedUsers, resolvedPosts, apiService) {
+        // console.log('listUsersCtrl');
+        
         var self = this;
         this.users = resolvedUsers;
         this.posts = resolvedPosts;

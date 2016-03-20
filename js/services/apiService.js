@@ -6,6 +6,8 @@
         .factory('apiService', ['$rootScope', '$http', 'localStorageService', apiService]);
 
     function apiService($rootScope, $http, localStorageService) {
+        // console.log('apiService');
+        
         var root = 'http://jsonplaceholder.typicode.com';
 
         return {

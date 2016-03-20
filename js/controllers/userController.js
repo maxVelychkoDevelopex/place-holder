@@ -6,6 +6,8 @@
         .controller('userCtrl', ['$scope', 'resolvedUser', 'resolvedUserPosts', userCtrl]);
 
     function userCtrl($scope, resolvedUser, resolvedUserPosts) {
+        // console.log('controller userCtrl');
+        
         var self = this;
         this.userId = null;
         this.user = resolvedUser;

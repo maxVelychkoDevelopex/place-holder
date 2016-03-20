@@ -6,6 +6,8 @@
     .directive('editUser', ['apiService', editUser]);
 
     function editUser(apiService) {
+        // console.log('directive editUser');
+
       return {
         restrict: 'E',
         scope: {
@@ -16,7 +18,9 @@
       }
 
       function link(scope) {
-        scope.button = 'show user';
+          // console.log('link directive editUser');
+
+          scope.button = 'show user';
         scope.userFormData = false;
         scope.user = JSON.parse(scope.userData);
         scope.editUserData = editUserData;

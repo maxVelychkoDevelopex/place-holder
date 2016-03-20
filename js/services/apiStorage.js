@@ -6,6 +6,7 @@
         .factory('apiStorage', ['localStorageService', 'apiService', apiStorage]);
 
     function apiStorage(localStorageService, apiService) {
+        // console.log('apiStorage');
 
         return {
             getUsersData: getUsersData,
