@@ -8,7 +8,8 @@
     function apiStorage(localStorageService, apiService) {
 
         return {
-            getUsersData: getUsersData
+            getUsersData: getUsersData,
+            getPostsData: getPostsData
         };
 
 
@@ -30,7 +31,7 @@
                         localStorageService.set('users', data.data);
 
                         if(userId) {
-                            return getCurrentUser(localStorageService.get('users'));
+                            return getCurrentUser(data.data);
                         } else {
                             return data.data;
                         }
@@ -47,6 +48,37 @@
             }
 
 
+        }
+        
+        function getPostsData(userId) {
+            var posts = localStorageService.get('posts');
+
+            if(posts) {
+                if(userId) {
+                    return getCurrentPosts(posts);
+                } else {
+                    return posts;
+                }
+            } else {
+                return apiService.loadPosts()
+                    .then(function (data) {
+                        localStorageService.set('posts', data.data);
+                        if(userId) {
+                            return getCurrentPosts(data.data);
+                        } else {
+                            return data.data;
+                        }
+                    })
+            }
+
+
+            function getCurrentPosts(posts) {
+                return posts.filter(function (item) {
+                    if(item.userId == userId) {
+                        return item;
+                    }
+                });
+            }
         }
     }
 })();

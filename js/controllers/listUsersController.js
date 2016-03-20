@@ -3,11 +3,12 @@
 
     angular
         .module('myApp')
-        .controller('listUsersCtrl', ['resolvedUsers', 'apiService', listUsersCtrl]);
+        .controller('listUsersCtrl', ['resolvedUsers', 'resolvedPosts', 'apiService', listUsersCtrl]);
 
-    function listUsersCtrl(resolvedUsers, apiService) {
+    function listUsersCtrl(resolvedUsers, resolvedPosts, apiService) {
         var self = this;
         this.users = resolvedUsers;
+        this.posts = resolvedPosts;
         this.showHideButtons = showHideButtons;
         this.deleteUser = deleteUser;
 

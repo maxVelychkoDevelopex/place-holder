@@ -3,29 +3,23 @@
 
   angular
     .module('myApp')
-    .directive('editUserPosts', ['apiService', editUserPosts]);
+    .directive('editUserPosts', editUserPosts);
 
-    function editUserPosts(apiService) {
+    function editUserPosts() {
       return {
         restrict: 'E',
-        scope: {
-          'userData': '@'
-        },
         templateUrl: 'templates/directives/edit-user-posts.html',
         link: link
       }
 
+
       function link(scope) {
-        scope.button = 'show posts';
-        scope.userPostsTable = false;
-        scope.userPosts = null;
-        scope.user = JSON.parse(scope.userData);
-        scope.editUserPosts = editUserPosts;
-
-        loadPosts();
+          scope.button = 'show posts';
+          scope.userPostsTable = false;
+          scope.editUserPosts = editUserPosts;
 
 
-        function editUserPosts() {
+          function editUserPosts() {
           scope.userPostsTable = !scope.userPostsTable;
 
           if(scope.userPostsTable) {
@@ -33,13 +27,6 @@
           } else {
             scope.button = 'show posts';
           }
-        }
-
-        function loadPosts() {
-          apiService.loadPosts(scope.user.id)
-            .then(function(data) {
-              scope.userPosts = data.data;
-            })
         }
 
 

@@ -1,12 +1,12 @@
 <button type="button" ng-click="editUserPosts()" class="btn btn-primary btn-custom-position">{{button ? button : 'edit'}}</button>
 <div class="col-md-12 row-top-position" ng-show="userPostsTable">
   <table class="table table-hover">
-    <tr class="active" ng-repeat="item in userPosts">
+    <tr class="active" ng-repeat="post in listUser.userPosts">
       <td>
-        {{item.title}}
-      </td>
+        {{post.title}}
+      </td>SSS
       <td>
-        {{item.body}}
+        {{post.body}}
       </td>
     </tr>
   </table>

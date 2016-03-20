@@ -16,12 +16,8 @@
         };
 
 
-        function loadUsers(userId) {
-          if(userId) {
-            return $http.get(root + '/users/' + userId);
-          } else {
+        function loadUsers() {
             return $http.get(root + '/users/');
-          }
         }
 
         function saveUser(data) {
@@ -35,12 +31,8 @@
           return $http.delete(root + '/users/' + userId);
         }
 
-        function loadPosts(userId) {
-          if(userId) {
-            return $http.get(root + '/posts?userId=' + userId);
-          } else {
+        function loadPosts() {
             return $http.get(root + '/posts/');
-          }
         }
 
     }

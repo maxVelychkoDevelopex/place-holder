@@ -11,8 +11,11 @@
             controller: 'listUsersCtrl as listUsers',
             resolve: {
               resolvedUsers: function(apiStorage) {
-                return apiStorage.getUsersData();
-              }
+                  return apiStorage.getUsersData();
+              },
+                resolvedPosts: function (apiStorage) {
+                    return apiStorage.getPostsData();
+                }
             }
           })
           .state('userId', {
@@ -22,7 +25,10 @@
             resolve: {
               resolvedUser: function(apiStorage, $stateParams) {
                 return apiStorage.getUsersData($stateParams.userId);
-              }
+              },
+                resolvedUserPosts: function (apiStorage, $stateParams) {
+                    return apiStorage.getPostsData($stateParams.userId);
+                }
             }
           });
 
